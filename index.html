@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Campus Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Splash Screen -->
+    <section id="splash" class="screen">
+        <h1>The Campus Kit</h1>
+        <p>All Campus Needs • One Place</p>
+        <button onclick="nextScreen('onboarding1')">Get Started</button>
+    </section>
+
+    <!-- Onboarding -->
+    <section id="onboarding1" class="screen hidden">
+        <h2>All Campus Needs One Place</h2>
+        <button onclick="nextScreen('onboarding2')">Next</button>
+    </section>
+
+    <section id="onboarding2" class="screen hidden">
+        <h2>Plan Your Study Smartly</h2>
+        <button onclick="nextScreen('onboarding3')">Next</button>
+    </section>
+
+    <section id="onboarding3" class="screen hidden">
+        <h2>Learn & Share Together</h2>
+        <button onclick="nextScreen('login')">Login</button>
+    </section>
+
+    <!-- Login -->
+    <section id="login" class="screen hidden">
+        <h2>Login</h2>
+        <form onsubmit="nextScreen('dashboard'); return false;">
+            <input type="text" placeholder="Email / Roll Number" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="#" onclick="nextScreen('signup')">Sign Up</a></p>
+    </section>
+
+    <!-- Signup -->
+    <section id="signup" class="screen hidden">
+        <h2>Sign Up</h2>
+        <form onsubmit="nextScreen('dashboard'); return false;">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="College Name" required>
+            <input type="text" placeholder="Email" required>
+            <input type="text" placeholder="Roll Number" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="screen hidden">
+        <h2>Welcome, Student 👋</h2>
+        <div class="tiles">
+            <div onclick="nextScreen('lost')">Lost & Found</div>
+            <div onclick="nextScreen('planner')">Study Planner</div>
+            <div onclick="nextScreen('notes')">Notes Library</div>
+            <div onclick="nextScreen('profile')">Profile</div>
+            <div onclick="nextScreen('settings')">Settings</div>
+        </div>
+    </section>
+
+    <!-- Lost & Found -->
+    <section id="lost" class="screen hidden">
+        <h2>Lost & Found</h2>
+        <form id="lostForm">
+            <input type="text" placeholder="Item name" required>
+            <input type="text" placeholder="Location" required>
+            <textarea placeholder="Description"></textarea>
+            <button type="submit">Post Item</button>
+        </form>
+        <div id="lostList"></div>
+        <button onclick="nextScreen('dashboard')">Back</button>
+    </section>
+
+    <!-- Study Planner -->
+    <section id="planner" class="screen hidden">
+        <h2>Study Planner</h2>
+        <form id="plannerForm">
+            <input type="text" placeholder="Subject" required>
+            <input type="time" required>
+            <button type="submit">Add Block</button>
+        </form>
+        <ul id="plannerView"></ul>
+        <button onclick="nextScreen('dashboard')">Back</button>
+    </section>
+
+    <!-- Notes Library -->
+    <section id="notes" class="screen hidden">
+        <h2>Notes Library</h2>
+        <ul>
+            <li>Data Structures</li>
+            <li>DBMS</li>
+            <li>Operating Systems</li>
+            <li>Python</li>
+        </ul>
+        <button onclick="nextScreen('dashboard')">Back</button>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile" class="screen hidden">
+        <h2>Profile</h2>
+        <p>Name: Student</p>
+        <p>Department: CSE</p>
+        <button onclick="nextScreen('dashboard')">Back</button>
+    </section>
+
+    <!-- Settings -->
+    <section id="settings" class="screen hidden">
+        <h2>Settings</h2>
+        <p>Theme: Light / Dark</p>
+        <p>Notifications: On / Off</p>
+        <button onclick="nextScreen('dashboard')">Back</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
